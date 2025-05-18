@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:g_hotle/auth/login_screen.dart';
+import 'package:g_hotle/auth/sign_up_screen.dart';
 import 'package:g_hotle/widgets/main_button.dart';
 
 class IntroScreen extends StatelessWidget {
@@ -63,20 +64,28 @@ class IntroScreen extends StatelessWidget {
                           SizedBox(height: 5.h),
 
                           MainButton(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: ((context) => LoginScreen()),
+                            onTap:
+                                () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LoginScreen(),
+                                  ),
                                 ),
-                              );
-                            },
                             title: "LOGIN",
                           ),
 
                           SizedBox(height: 10.h),
 
-                          MainButton(onTap: () {}, title: "SIGN UP"),
+                          MainButton(
+                            onTap:
+                                () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => SignUpScreen(),
+                                  ),
+                                ),
+                            title: "SIGN UP",
+                          ),
 
                           SizedBox(height: 20.h),
                         ],

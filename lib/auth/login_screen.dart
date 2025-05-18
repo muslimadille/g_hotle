@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:g_hotle/auth/reset_password.dart';
+import 'package:g_hotle/auth/sign_up_screen.dart';
+import 'package:g_hotle/widgets/custom_text_field.dart';
 import 'package:g_hotle/widgets/main_button.dart';
 import 'package:g_hotle/widgets/main_container.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -62,59 +68,68 @@ class LoginScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 30.h),
 
-                        TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Email Address or Phone Number',
-                            hintStyle: TextStyle(
-                              fontSize: 15.sp,
-                              fontWeight: FontWeight.w300,
-                              color: Colors.black,
-                            ),
-                            border: UnderlineInputBorder(),
-                          ),
+                        CustomTextField(
+                          hintText: 'Email Address or Phone Number',
+                          controller: emailController,
+                          keyboardType: TextInputType.emailAddress,
+                          obscureText: false,
                         ),
+
                         SizedBox(height: 30.h),
 
-                        TextField(
+                        CustomTextField(
+                          hintText: 'Password',
+                          controller: passwordController,
+                          keyboardType: TextInputType.visiblePassword,
                           obscureText: true,
-                          decoration: InputDecoration(
-                            hintText: 'Password',
-                            hintStyle: TextStyle(
-                              fontSize: 15.sp,
-                              fontWeight: FontWeight.w300,
-                              color: Colors.black,
-                            ),
-                            border: UnderlineInputBorder(),
-                          ),
                         ),
+
                         SizedBox(height: 10.h),
 
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                'Forgot Password?',
-                                style: TextStyle(
-                                  fontSize: 7.5.sp,
-                                  fontWeight: FontWeight.w300,
+                        GestureDetector(
+                          onTap:
+                              () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ResetPassword(),
                                 ),
                               ),
-                              SizedBox(width: 5),
-                              Icon(Icons.arrow_forward, size: 16.sp),
-                            ],
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  'Forgot Password?',
+                                  style: TextStyle(
+                                    fontSize: 7.5.sp,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                ),
+                                SizedBox(width: 5),
+                                Icon(Icons.arrow_forward, size: 16.sp),
+                              ],
+                            ),
                           ),
                         ),
                         SizedBox(height: 20.h),
 
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Don’t have an Account? Sign up",
-                            style: TextStyle(
-                              fontSize: 10.sp,
-                              fontWeight: FontWeight.w300,
+                        GestureDetector(
+                          onTap:
+                              () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SignUpScreen(),
+                                ),
+                              ),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "Don’t have an Account? Sign up",
+                              style: TextStyle(
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.w300,
+                              ),
                             ),
                           ),
                         ),

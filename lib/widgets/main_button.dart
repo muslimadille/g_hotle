@@ -45,10 +45,10 @@ class MainButton extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 2.w),
               color: Colors.white,
               child: Center(
-                child: Icon(
-                  Icons.arrow_forward,
-                  color: Color(0xff999999),
-                  weight: 16.w,
+                child: Image.asset(
+                  'assets/icons/arrow_forward.png',
+                  width: 10.w,
+                  height: 10.h,
                 ),
               ),
             ),
