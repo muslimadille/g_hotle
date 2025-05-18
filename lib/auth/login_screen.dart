@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:g_hotle/widgets/home_page.dart';
 import 'package:g_hotle/widgets/main_button.dart';
 import 'package:g_hotle/widgets/main_container.dart';
 
@@ -124,7 +125,9 @@ class LoginScreen extends StatelessWidget {
                 ),
                 Positioned(
                   bottom: 0.h,
-                  child: MainButton(onTap: () {}, title: "LOGIN"),
+                  child: MainButton(onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+                  }, title: "LOGIN"),
                 ),
               ],
             ),
